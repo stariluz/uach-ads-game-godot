@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://copmswempjdfj"]
+
+[ext_resource type="PackedScene" uid="uid://dmksef8knft53" path="res://Components/text_input.tscn" id="1_yn7an"]
+
+[node name="test" type="Node2D"]
+
+[node name="TextInput" parent="." instance=ExtResource("1_yn7an")]
