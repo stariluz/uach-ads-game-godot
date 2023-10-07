@@ -1,13 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://copmswempjdfj"]
 
 [ext_resource type="PackedScene" uid="uid://dmksef8knft53" path="res://Components/text_input.tscn" id="1_atg3y"]
-[ext_resource type="PackedScene" uid="uid://4lblpu8bjkuw" path="res://Components/key_button.tscn" id="2_mhf5j"]
+[ext_resource type="PackedScene" uid="uid://b7nujlrp51o30" path="res://Components/keyboard.tscn" id="2_lbp47"]
 
 [node name="test" type="Node2D"]
 
 [node name="TextInput" parent="." instance=ExtResource("1_atg3y")]
 position = Vector2(7, 4)
 
-[node name="KeyButton" parent="." instance=ExtResource("2_mhf5j")]
-position = Vector2(28, 242)
-letterText = "Z"
+[node name="Keyboard" parent="." instance=ExtResource("2_lbp47")]
+position = Vector2(229, 435)
