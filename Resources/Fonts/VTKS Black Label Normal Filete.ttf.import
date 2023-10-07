@@ -1,0 +1,38 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bqm64l0q5n3ci"
+path="res://.godot/imported/VTKS Black Label Normal Filete.ttf-6cb5be69b15ff3f67e4e54ccb39eae32.fontdata"
+
+[deps]
+
+source_file="res://Resources/Fonts/VTKS Black Label Normal Filete.ttf"
+dest_files=["res://.godot/imported/VTKS Black Label Normal Filete.ttf-6cb5be69b15ff3f67e4e54ccb39eae32.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(10, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}
