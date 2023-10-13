@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://hku86bxm4g2n"]
+
+[ext_resource type="Theme" uid="uid://bgv20uqau4260" path="res://Resources/Themes/main_theme.tres" id="1_tfo37"]
+
+[sub_resource type="Gradient" id="Gradient_fr37p"]
+colors = PackedColorArray(0.625597, 0.625597, 0.625597, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nj7qq"]
+gradient = SubResource("Gradient_fr37p")
+width = 128
+height = 128
+fill_from = Vector2(0.551282, 1)
+fill_to = Vector2(0.126068, 0)
+
+[node name="letter_box_ui" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LetterBackground" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("1_tfo37")
+texture = SubResource("GradientTexture2D_nj7qq")
+expand_mode = 2
+
+[node name="Letter" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_tfo37")
+theme_type_variation = &"HeaderMedium"
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1

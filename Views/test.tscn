@@ -9,4 +9,7 @@
 position = Vector2(7, 4)
 
 [node name="Keyboard" parent="." instance=ExtResource("2_lbp47")]
-position = Vector2(229, 435)
+offset_left = 650.0
+offset_top = 640.0
+offset_right = 650.0
+offset_bottom = 640.0

@@ -3,149 +3,124 @@
 [ext_resource type="PackedScene" uid="uid://4lblpu8bjkuw" path="res://Components/key_button.tscn" id="1_6klnk"]
 [ext_resource type="Script" path="res://Components/keyboard.gd" id="1_k3dbe"]
 
-[node name="Keyboard" type="Node2D"]
+[node name="Keyboard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_k3dbe")
 
 [node name="Row1" type="Node2D" parent="."]
 
-[node name="A" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
-keyboard = NodePath("../..")
+[node name="A" parent="Row1" instance=ExtResource("1_6klnk")]
 
-[node name="B" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="B" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(64, 2.08165e-12)
 letterText = "B"
-keyboard = NodePath("../..")
 
-[node name="C" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="C" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(128, 2.08165e-12)
 letterText = "C"
-keyboard = NodePath("../..")
 
-[node name="D" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="D" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(192, 2.08165e-12)
 letterText = "D"
-keyboard = NodePath("../..")
 
-[node name="E" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="E" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(256, 2.08165e-12)
 letterText = "E"
-keyboard = NodePath("../..")
 
-[node name="F" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="F" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(320, 2.08165e-12)
 letterText = "F"
-keyboard = NodePath("../..")
 
-[node name="G" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="G" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(384, 2.08165e-12)
 letterText = "G"
-keyboard = NodePath("../..")
 
-[node name="H" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="H" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(448, 2.08165e-12)
 letterText = "H"
-keyboard = NodePath("../..")
 
-[node name="I" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="I" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(512, 2.08165e-12)
 letterText = "I"
-keyboard = NodePath("../..")
 
-[node name="J" parent="Row1" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="J" parent="Row1" instance=ExtResource("1_6klnk")]
 position = Vector2(576, 2.08165e-12)
 letterText = "J"
-keyboard = NodePath("../..")
 
 [node name="Row2" type="Node2D" parent="."]
 position = Vector2(32, 2.08165e-12)
 
-[node name="K" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="K" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(2.08165e-12, 64)
 letterText = "K"
-keyboard = NodePath("../..")
 
-[node name="L" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="L" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(64, 64)
 letterText = "L"
-keyboard = NodePath("../..")
 
-[node name="M" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="M" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(128, 64)
 letterText = "M"
-keyboard = NodePath("../..")
 
-[node name="N" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="N" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(192, 64)
 letterText = "N"
-keyboard = NodePath("../..")
 
-[node name="Ñ" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="Ñ" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(256, 64)
 letterText = "Ñ"
-keyboard = NodePath("../..")
 
-[node name="O" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="O" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(320, 64)
 letterText = "O"
-keyboard = NodePath("../..")
 
-[node name="P" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="P" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(384, 64)
 letterText = "P"
-keyboard = NodePath("../..")
 
-[node name="Q" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="Q" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(448, 64)
 letterText = "Q"
-keyboard = NodePath("../..")
 
-[node name="R" parent="Row2" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="R" parent="Row2" instance=ExtResource("1_6klnk")]
 position = Vector2(512, 64)
 letterText = "R"
-keyboard = NodePath("../..")
 
 [node name="Row3" type="Node2D" parent="."]
 position = Vector2(64, 2.08165e-12)
 
-[node name="S" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="S" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(0, 128)
 letterText = "S"
-keyboard = NodePath("../..")
 
-[node name="T" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="T" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(64, 128)
 letterText = "T"
-keyboard = NodePath("../..")
 
-[node name="U" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="U" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(128, 128)
 letterText = "U"
-keyboard = NodePath("../..")
 
-[node name="V" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="V" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(192, 128)
 letterText = "V"
-keyboard = NodePath("../..")
 
-[node name="W" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="W" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(256, 128)
 letterText = "W"
-keyboard = NodePath("../..")
 
-[node name="X" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="X" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(320, 128)
 letterText = "X"
-keyboard = NodePath("../..")
 
-[node name="Y" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="Y" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(384, 128)
 letterText = "Y"
-keyboard = NodePath("../..")
 
-[node name="Z" parent="Row3" node_paths=PackedStringArray("keyboard") instance=ExtResource("1_6klnk")]
+[node name="Z" parent="Row3" instance=ExtResource("1_6klnk")]
 position = Vector2(448, 128)
 letterText = "Z"
-keyboard = NodePath("../..")
 
 [connection signal="key_clicked" from="Row1/A" to="." method="_on_a_key_clicked"]
 [connection signal="key_clicked" from="Row1/B" to="." method="_on_a_key_clicked"]

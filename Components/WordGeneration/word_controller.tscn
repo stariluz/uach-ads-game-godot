@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://drc6j16blej0u"]
+
+[ext_resource type="Script" path="res://Components/WordGeneration/word_controller.gd" id="1_y6fw5"]
+
+[node name="word_controller" type="Node2D" node_paths=PackedStringArray("rowContainer")]
+script = ExtResource("1_y6fw5")
+WORD_WIDTH = 1400.0
+rowContainer = NodePath("RowContainer")
+
+[node name="RowContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
