@@ -12,3 +12,5 @@ offset_left = 650.0
 offset_top = 640.0
 offset_right = 650.0
 offset_bottom = 640.0
+
+[connection signal="key_clicked" from="Keyboard" to="word_controller" method="onTry"]
