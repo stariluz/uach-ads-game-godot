@@ -35,15 +35,12 @@ func hideWord(word:String):
 	return hidenWord
 	
 func renderWordUI():
-	var length=currentWord.length()
+	var length=tryWord.length()
 	var boxWidth=(WORD_WIDTH/(LETTER_FREESPACE_ASPECT_RATIO*(length-1)+length))
 	var freeSpace=boxWidth*LETTER_FREESPACE_ASPECT_RATIO;
-	print_debug("DEV ",length)
-	
-	print_debug("DEV - length - boxWidt - freeSpace",length, " ", boxWidth," ", freeSpace)
 	
 	for i in range(length):
-		renderLetterBoxUI(currentWord[i].to_upper(), (boxWidth+freeSpace)*i, boxWidth)
+		renderLetterBoxUI(tryWord[i].to_upper(), (boxWidth+freeSpace)*i, boxWidth)
 
 func renderLetterBoxUI(letter:String, horizontalPosition:int, horizontalSize: float):
 	var lbUIInstance = letterBoxUIScene.instantiate()
