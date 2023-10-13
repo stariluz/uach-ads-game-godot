@@ -1,11 +1,17 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bgv20uqau4260"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bgv20uqau4260"]
 
 [ext_resource type="FontFile" uid="uid://bqm64l0q5n3ci" path="res://Resources/Fonts/VTKS Black Label Normal Filete.ttf" id="1_1t57y"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbicc"]
+
 [resource]
 default_font = ExtResource("1_1t57y")
+GridContainer/constants/h_separation = 16
+GridContainer/constants/v_separation = 8
+HBoxContainer/constants/separation = 16
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 96
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_xbicc")
 TextEdit/colors/caret_color = Color(0.52549, 0, 0.572549, 1)
 TextEdit/font_sizes/font_size = 48
 TextEdit/fonts/font = ExtResource("1_1t57y")

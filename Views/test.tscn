@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://copmswempjdfj"]
 
-[ext_resource type="PackedScene" uid="uid://dmksef8knft53" path="res://Components/text_input.tscn" id="1_atg3y"]
+[ext_resource type="PackedScene" uid="uid://drc6j16blej0u" path="res://Components/WordGeneration/word_controller.tscn" id="1_kjiem"]
 [ext_resource type="PackedScene" uid="uid://b7nujlrp51o30" path="res://Components/keyboard.tscn" id="2_lbp47"]
 
 [node name="test" type="Node2D"]
 
-[node name="TextInput" parent="." instance=ExtResource("1_atg3y")]
-position = Vector2(7, 4)
+[node name="word_controller" parent="." instance=ExtResource("1_kjiem")]
 
 [node name="Keyboard" parent="." instance=ExtResource("2_lbp47")]
 offset_left = 650.0
