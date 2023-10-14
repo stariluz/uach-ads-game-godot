@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://drc6j16blej0u"]
 
-[ext_resource type="Script" path="res://Components/WordGeneration/WordManager.gd" id="1_fh2gh"]
+[ext_resource type="Script" path="res://Components/Word/WordManager.gd" id="1_885kg"]
 
 [node name="WordManager" type="Container" node_paths=PackedStringArray("nodeReceptor")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_fh2gh")
+script = ExtResource("1_885kg")
 WORD_WIDTH = 1400.0
 nodeReceptor = NodePath("WordCenter")
 

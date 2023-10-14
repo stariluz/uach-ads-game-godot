@@ -10,6 +10,10 @@ const words:Array[String]=[
 	"pelota",
 	"conceptos",
 ];
+
+signal on_good_attempt(letter:String, time:int)
+signal on_bad_attempt(letter:String, time:int)
+
 @export var WORD_WIDTH:float=1520
 @export var LETTER_FREESPACE_ASPECT_RATIO:float=0.1
 @export var currentWord:String=""
@@ -21,7 +25,7 @@ var lettersBoxUIIntances:Array=[]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	letterBoxUIScene=preload("res://Components/WordGeneration/letter_box_ui.tscn");
+	letterBoxUIScene=preload("res://Components/Word/letter_box_ui.tscn");
 	var randomIndex = randi() % words.size()
 	currentWord = words[randomIndex]
 	print("Randomly selected word: ", currentWord)
@@ -77,20 +81,33 @@ func rerenderLetterBoxUI(index:int, letter:String):
 	print_debug(lettersBoxUIIntances[index])
 	lettersBoxUIIntances[index].get_node("Letter").text=letter
 
-func onTry(key:String):
-	print_debug("TRY", key)
-	var isRightTry=false
+func onAttempt(attempt_letter:String):
+	print_debug("TRY", attempt_letter)
+	var isGoodAttempt=false
 	
 	for letter in tryWord:
-		if letter.to_upper()==key.to_upper():
-			print_debug(letter, " ", key)
-			return
+		if letter.to_upper()==attempt_letter.to_upper():
+			print_debug(letter, " ", attempt_letter)
+			return isGoodAttempt
 			
 	for i in range(currentWord.length()):
-		print_debug(currentWord[i], " ", key)
-		if currentWord[i].to_upper()==key.to_upper():
-			tryWord[i]=key;
-			rerenderLetterBoxUI(i, key)
-			isRightTry=true
+		print_debug(currentWord[i], " ", attempt_letter)
+		if currentWord[i].to_upper()==attempt_letter.to_upper():
+			tryWord[i]=attempt_letter.to_upper();
+			rerenderLetterBoxUI(i, attempt_letter)
+			isGoodAttempt=true
 
-	return isRightTry
+	if(isGoodAttempt):
+		onGoodAttempt(attempt_letter)
+	else:
+		onBadAttempt(attempt_letter)
+		
+	return isGoodAttempt
+	
+func onGoodAttempt(letter:String,):
+	emit_signal("on_good_attempt", letter, Time);
+	
+func onBadAttempt(letter:String,):
+	emit_signal("on_bad_attempt", letter, Time);
+	
+
