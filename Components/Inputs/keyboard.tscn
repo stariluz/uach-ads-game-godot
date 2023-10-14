@@ -1,124 +1,124 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7nujlrp51o30"]
 
-[ext_resource type="PackedScene" uid="uid://4lblpu8bjkuw" path="res://Components/key_button.tscn" id="1_6klnk"]
-[ext_resource type="Script" path="res://Components/keyboard.gd" id="1_k3dbe"]
+[ext_resource type="Script" path="res://Components/Inputs/keyboard.gd" id="1_8omr7"]
+[ext_resource type="PackedScene" uid="uid://4lblpu8bjkuw" path="res://Components/Inputs/key_button.tscn" id="2_2yaye"]
 
 [node name="Keyboard" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_k3dbe")
+script = ExtResource("1_8omr7")
 
 [node name="Row1" type="Node2D" parent="."]
 
-[node name="A" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="A" parent="Row1" instance=ExtResource("2_2yaye")]
 
-[node name="B" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="B" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(64, 2.08165e-12)
 letterText = "B"
 
-[node name="C" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="C" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(128, 2.08165e-12)
 letterText = "C"
 
-[node name="D" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="D" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(192, 2.08165e-12)
 letterText = "D"
 
-[node name="E" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="E" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(256, 2.08165e-12)
 letterText = "E"
 
-[node name="F" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="F" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(320, 2.08165e-12)
 letterText = "F"
 
-[node name="G" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="G" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(384, 2.08165e-12)
 letterText = "G"
 
-[node name="H" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="H" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(448, 2.08165e-12)
 letterText = "H"
 
-[node name="I" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="I" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(512, 2.08165e-12)
 letterText = "I"
 
-[node name="J" parent="Row1" instance=ExtResource("1_6klnk")]
+[node name="J" parent="Row1" instance=ExtResource("2_2yaye")]
 position = Vector2(576, 2.08165e-12)
 letterText = "J"
 
 [node name="Row2" type="Node2D" parent="."]
 position = Vector2(32, 2.08165e-12)
 
-[node name="K" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="K" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(2.08165e-12, 64)
 letterText = "K"
 
-[node name="L" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="L" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(64, 64)
 letterText = "L"
 
-[node name="M" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="M" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(128, 64)
 letterText = "M"
 
-[node name="N" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="N" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(192, 64)
 letterText = "N"
 
-[node name="Ñ" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="Ñ" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(256, 64)
 letterText = "Ñ"
 
-[node name="O" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="O" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(320, 64)
 letterText = "O"
 
-[node name="P" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="P" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(384, 64)
 letterText = "P"
 
-[node name="Q" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="Q" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(448, 64)
 letterText = "Q"
 
-[node name="R" parent="Row2" instance=ExtResource("1_6klnk")]
+[node name="R" parent="Row2" instance=ExtResource("2_2yaye")]
 position = Vector2(512, 64)
 letterText = "R"
 
 [node name="Row3" type="Node2D" parent="."]
 position = Vector2(64, 2.08165e-12)
 
-[node name="S" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="S" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(0, 128)
 letterText = "S"
 
-[node name="T" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="T" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(64, 128)
 letterText = "T"
 
-[node name="U" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="U" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(128, 128)
 letterText = "U"
 
-[node name="V" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="V" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(192, 128)
 letterText = "V"
 
-[node name="W" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="W" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(256, 128)
 letterText = "W"
 
-[node name="X" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="X" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(320, 128)
 letterText = "X"
 
-[node name="Y" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="Y" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(384, 128)
 letterText = "Y"
 
-[node name="Z" parent="Row3" instance=ExtResource("1_6klnk")]
+[node name="Z" parent="Row3" instance=ExtResource("2_2yaye")]
 position = Vector2(448, 128)
 letterText = "Z"
 

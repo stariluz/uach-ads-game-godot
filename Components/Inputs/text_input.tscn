@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dmksef8knft53"]
 
-[ext_resource type="Script" path="res://Components/text_edit.gd" id="1_ur3uh"]
-[ext_resource type="Script" path="res://Components/line_edit.gd" id="2_6nw85"]
+[ext_resource type="Script" path="res://Components/Inputs/text_edit.gd" id="1_ur3uh"]
+[ext_resource type="Script" path="res://Components/Inputs/line_edit.gd" id="2_6nw85"]
 
 [sub_resource type="Theme" id="Theme_awbeg"]
 default_base_scale = 1.0

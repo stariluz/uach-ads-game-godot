@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://copmswempjdfj"]
 
 [ext_resource type="PackedScene" uid="uid://drc6j16blej0u" path="res://Components/Word/WordManager.tscn" id="1_kjiem"]
-[ext_resource type="PackedScene" uid="uid://b7nujlrp51o30" path="res://Components/keyboard.tscn" id="2_lbp47"]
+[ext_resource type="PackedScene" uid="uid://b7nujlrp51o30" path="res://Components/Inputs/keyboard.tscn" id="2_lbp47"]
 
 [node name="test" type="Node2D"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://4lblpu8bjkuw"]
 
-[ext_resource type="Script" path="res://Components/key_button.gd" id="1_87376"]
+[ext_resource type="Script" path="res://Components/Inputs/key_button.gd" id="1_87376"]
 [ext_resource type="FontFile" uid="uid://bqm64l0q5n3ci" path="res://Resources/Fonts/VTKS Black Label Normal Filete.ttf" id="2_4t1e3"]
 
 [sub_resource type="Gradient" id="Gradient_rsvcw"]
