@@ -13,6 +13,8 @@ const words:Array[String]=[
 @export var WORD_WIDTH:float=1520
 @export var LETTER_FREESPACE_ASPECT_RATIO:float=0.1
 @export var currentWord:String=""
+@export var nodeReceptor:Control
+
 var tryWord:String=""
 var letterBoxUIScene
 var lettersBoxUIIntances:Array=[]
@@ -43,11 +45,23 @@ func renderWordUI():
 	
 	for i in range(length):
 		renderLetterBoxUI(tryWord[i].to_upper(), (boxWidth+freeSpace)*i, boxWidth)
+		
+	var horizontal_offset=WORD_WIDTH/2
+	var vertical_offset=boxWidth/2
+#
+	nodeReceptor.anchor_left = 0.5
+	nodeReceptor.anchor_right = 0.5
+	nodeReceptor.anchor_top = 0.5
+	nodeReceptor.anchor_bottom = 0.5
+	nodeReceptor.offset_left = -horizontal_offset
+	nodeReceptor.offset_right = horizontal_offset
+	nodeReceptor.offset_top = -vertical_offset
+	nodeReceptor.offset_bottom = vertical_offset
 
 func renderLetterBoxUI(letter:String, horizontalPosition:int, horizontalSize: float):
 	var lbUIInstance = letterBoxUIScene.instantiate()
-	add_child(lbUIInstance)
-	
+#	add_child(lbUIInstance)
+	nodeReceptor.add_child(lbUIInstance)
 	lbUIInstance.get_node("Letter").text=letter;
 	var new_position = Vector2(horizontalPosition, 0)
 	var scaleMultiplier=horizontalSize/lbUIInstance.size.x
