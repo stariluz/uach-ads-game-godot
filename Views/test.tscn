@@ -38,6 +38,7 @@ horizontal_alignment = 2
 
 [connection signal="on_bad_attempt" from="WordManager" to="ScoreManager" method="on_bad_attempt"]
 [connection signal="on_good_attempt" from="WordManager" to="ScoreManager" method="on_good_attempt"]
+[connection signal="on_win" from="WordManager" to="Keyboard" method="initKeyboard"]
 [connection signal="on_win" from="WordManager" to="ScoreManager" method="on_win"]
 [connection signal="on_word_initialized" from="WordManager" to="ScoreManager" method="on_word_initialized"]
 [connection signal="key_clicked" from="Keyboard" to="WordManager" method="onAttempt"]

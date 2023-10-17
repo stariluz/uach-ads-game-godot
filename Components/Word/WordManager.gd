@@ -101,18 +101,26 @@ func renderWordUI():
 	nodeReceptor.offset_top = -vertical_offset
 	nodeReceptor.offset_bottom = vertical_offset
 
+func initNodesLabels():
+	lettersBoxUIIntances=[]
+	
+	var children = nodeReceptor.get_children()
+	for child in children:
+		nodeReceptor.remove_child(child)
+	
+	# This is ereasing the word. I don't know if it's necesary
+#	if is_instance_valid(nodeReceptor):
+#		nodeReceptor.queue_free()
+
 func renderLetterBoxUI(letter:String, horizontalPosition:int, horizontalSize: float):
 	var lbUIInstance = letterBoxUIScene.instantiate()
-#	add_child(lbUIInstance)
+
 	nodeReceptor.add_child(lbUIInstance)
 	lbUIInstance.get_node("Letter").text=letter;
 	var new_position = Vector2(horizontalPosition, 0)
 	var scaleMultiplier=horizontalSize/lbUIInstance.size.x
 	lbUIInstance.position = new_position
-#	print_debug("DEV - size ",lbUIInstance.size)
-	
 	lbUIInstance.scale=Vector2(scaleMultiplier, scaleMultiplier)
-#	print_debug("DEV - scale ",lbUIInstance.scale)
 	
 	lettersBoxUIIntances.push_back(lbUIInstance)
 	
@@ -120,6 +128,7 @@ func rerenderLetterBoxUI(index:int, letter:String):
 	lettersBoxUIIntances[index].get_node("Letter").text=letter
 
 func onAttempt(attempt_letter:String):
+	print_debug(nodeReceptor.get_children())
 	if(usedLetters[attempt_letter]):
 		print_debug("Letter already tried")
 		return
@@ -186,7 +195,9 @@ func initUsedLetters():
 
 func onWin():
 	emit_signal("on_win");
+	initNodesLabels()
 	initWord()
+	renderWordUI()
 	
 func onGoodAttempt(letter:String,):
 	emit_signal("on_good_attempt", letter);

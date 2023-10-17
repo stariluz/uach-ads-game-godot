@@ -22,6 +22,7 @@ func _process(delta):
 
 
 func _on_texture_button_pressed():
+#	print_debug(clicked)
 	if(!clicked):
 		emit_signal("key_clicked",letterText)
 		set_key_as_clicked()
