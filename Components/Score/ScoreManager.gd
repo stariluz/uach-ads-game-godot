@@ -1,4 +1,6 @@
 extends Node2D
+
+@export var FILE_NAME="scores_heap.tres"
 var pointsPerGroup:Dictionary={
 	"group_1": 100,
 	"group_2": 200,
@@ -35,22 +37,63 @@ var letterGroup: Dictionary = {
 	"Y": "group_3",
 	"Z": "group_5",
 }
-
+var currentScore=Score.new()
+var scoresHeap:ScoresHeap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass  # Replace with function body.
-
+	scoresHeap=load_score()
+	if !scoresHeap:
+		scoresHeap=ScoresHeap.new()
+#	print_debug("DEV - ScoreManager - scoresHeap:", scoresHeap)
+#	print_debug("DEV - ScoreManager - scoresHeap.length:", scoresHeap.scoresHeapLength)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
+	
+func setScoreWord(word:String):
+	currentScore.word=word
+	
+func getScorelist():
+	print_debug("DEV - ScoreManager - getScorelist: ", scoresHeap.getSortedScores())
+	print_debug("DEV - ScoreManager - getScorelist: ", scoresHeap.getSortedScores())
+	return scoresHeap.getSortedScores()
+	
+func on_word_initialized(word: String):
+	currentScore.word=word
+	
+func on_bad_attempt(letter: String):
+	# @todo Recalculate the score of the word.
+	pass
+	
 func on_good_attempt(letter: String):
+	# @todo Calculate the score of the word.
 	pass
 	
-func on_win(word: String):
+func on_win():
+	# @todo Recalculate the score of the word.
+	scoresHeap.registerScore(currentScore)
+#	print_debug("DEV - ScoreManager - on_win - Sorted scores:", scoresHeap.getSortedScores())
+	save_score(scoresHeap)
+	
+func on_lose():
 	pass
 	
-func on_lose(word: String):
-	pass
+func load_score():
+	if ResourceLoader.exists(FILE_NAME):
+		var scoresHeap = ResourceLoader.load(FILE_NAME)
+		if scoresHeap is ScoresHeap: # Check that the data is valid
+			print_debug("DEV - ScoreManager - loadScore - ScoresHeap", scoresHeap)
+			return scoresHeap
+		else:
+			print_debug("DEV - ScoreManager - loadScore - ScoresHeap", null)
+			return null
+	else:
+		print_debug("DEV - ScoreManager - loadScore - ScoresHeap", null)
+		return null
+	
+func save_score(scoresHeap:ScoresHeap):
+	var result = ResourceSaver.save(scoresHeap, FILE_NAME)
+	assert(result == OK)
+	print_debug("ERROR", scoresHeap)

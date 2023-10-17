@@ -1,18 +1,22 @@
 extends Control
 
 const words:Array[String]=[
-	"parangacutimicuaro",
-	"electrocamaleon",
+#	"parangacutimicuaro",
+#	"contrarrevolucionario",
 	"mitocondria",
 	"aeropuerto",
 	"alabasta",
 	"animal",
 	"pelota",
 	"conceptos",
+#	"esternocleidomastoideo",
+	"ñandu"
 ];
 
-signal on_good_attempt(letter:String, time:int)
-signal on_bad_attempt(letter:String, time:int)
+signal on_good_attempt(letter:String)
+signal on_bad_attempt(letter:String)
+signal on_win()
+signal on_word_initialized(word:String)
 
 @export var WORD_WIDTH:float=1520
 @export var LETTER_FREESPACE_ASPECT_RATIO:float=0.1
@@ -25,16 +29,20 @@ var lettersBoxUIIntances:Array=[]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	letterBoxUIScene=preload("res://Components/Word/letter_box_ui.tscn");
-	var randomIndex = randi() % words.size()
-	currentWord = words[randomIndex]
-	print("Randomly selected word: ", currentWord)
-	tryWord=hideWord(currentWord);
+	letterBoxUIScene=preload("res://Components/Word/letter_box_ui.tscn")
+	initWord()
 	renderWordUI();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func initWord():
+	var randomIndex = randi() % words.size()
+	currentWord = words[randomIndex]
+	print("Randomly selected word: ", currentWord)
+	tryWord=hideWord(currentWord)
+	emit_signal('on_word_initialized', currentWord)
 	
 func hideWord(word:String):
 	var hidenWord=""
@@ -78,7 +86,7 @@ func renderLetterBoxUI(letter:String, horizontalPosition:int, horizontalSize: fl
 	lettersBoxUIIntances.push_back(lbUIInstance)
 	
 func rerenderLetterBoxUI(index:int, letter:String):
-	print_debug(lettersBoxUIIntances[index])
+#	print_debug(lettersBoxUIIntances[index])
 	lettersBoxUIIntances[index].get_node("Letter").text=letter
 
 func onAttempt(attempt_letter:String):
@@ -96,18 +104,30 @@ func onAttempt(attempt_letter:String):
 			tryWord[i]=attempt_letter.to_upper();
 			rerenderLetterBoxUI(i, attempt_letter)
 			isGoodAttempt=true
-
 	if(isGoodAttempt):
+		if(hasWon()):
+			onWin()
 		onGoodAttempt(attempt_letter)
 	else:
 		onBadAttempt(attempt_letter)
 		
 	return isGoodAttempt
 	
+func hasWon():
+	var hasWin=true
+		
+	for i in range(currentWord.length()):
+		if currentWord[i].to_upper() != tryWord[i].to_upper():
+			hasWin=false
+	print_debug("DEV - WordManager - HAS WIN?", hasWin)
+	return hasWin
+	
+func onWin():
+	emit_signal("on_win");
+	
 func onGoodAttempt(letter:String,):
-	emit_signal("on_good_attempt", letter, Time);
+	emit_signal("on_good_attempt", letter);
 	
 func onBadAttempt(letter:String,):
-	emit_signal("on_bad_attempt", letter, Time);
+	emit_signal("on_bad_attempt", letter);
 	
-
