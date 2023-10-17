@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="ScoresHeap" load_steps=2 format=3 uid="uid://pwvf0rux6ryx"]
-
-[ext_resource type="Script" path="res://Components/Score/ScoresHeap.gd" id="1_6em57"]
-
-[resource]
-script = ExtResource("1_6em57")

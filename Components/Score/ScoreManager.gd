@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var FILE_NAME="scores_heap.tres"
+@export var FILE_NAME="scores_heap.json"
 var pointsPerGroup:Dictionary={
 	"group_1": 100,
 	"group_2": 200,
@@ -81,19 +81,28 @@ func on_lose():
 	pass
 	
 func load_score():
-	if ResourceLoader.exists(FILE_NAME):
-		var scoresHeap = ResourceLoader.load(FILE_NAME)
-		if scoresHeap is ScoresHeap: # Check that the data is valid
-			print_debug("DEV - ScoreManager - loadScore - ScoresHeap", scoresHeap)
-			return scoresHeap
-		else:
-			print_debug("DEV - ScoreManager - loadScore - ScoresHeap", null)
-			return null
-	else:
-		print_debug("DEV - ScoreManager - loadScore - ScoresHeap", null)
+	if not FileAccess.file_exists(FILE_NAME):
+		print_debug("DEV - ScoreManager - loadScore:", "File hasn't been created")
+		return # Error! We don't have a save to load.
+	var save_game = FileAccess.open(FILE_NAME, FileAccess.READ)
+	var json_string = save_game.get_line()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if not parse_result == OK:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return null
+
+	# Get the data from the JSON object
+	var score_data = json.get_data()
+	
+	print_debug("DEV - ScoreManager - loadScore - ScoresHeap", score_data)
+	return ScoresHeap.load(score_data)
+	save_game.close()
 	
 func save_score(scoresHeap:ScoresHeap):
-	var result = ResourceSaver.save(scoresHeap, FILE_NAME)
-	assert(result == OK)
-	print_debug("ERROR", scoresHeap)
+	print_debug("DEV - ScoreManager - save_score", scoresHeap.scoresHeap)
+	var save_game = FileAccess.open(FILE_NAME, FileAccess.WRITE)
+	var json_string =JSON.stringify(scoresHeap.save())
+	save_game.store_line(json_string)
+	save_game.close()
+

@@ -5,7 +5,7 @@ class_name ScoresHeap
 static var MAX_LENGTH = 10000
 static var IS_OUT_OF_ARRAY = -1
 
-var scoresHeap: Array[Score] = []
+var scoresHeap: Array = []
 var scoresHeapLength := 0
 
 func getRightNodeIndex(index):
@@ -87,3 +87,16 @@ func getSortedScores():
 	scoresHeapLength=copyScores.size()
 	print_debug("DEV - ScoresHeap - sortedScores:", scoresHeap, copyScores)
 	return sortedScores
+
+func save():
+	var data = {
+		"scoresHeap": scoresHeap.map(func(score): return score.save()),
+		"scoresHeapLength": scoresHeapLength
+	}
+	return data;
+
+static func load(data):
+	var response=ScoresHeap.new()
+	response.scoresHeap=data.scoresHeap.map(func(score_data)->Score: return Score.load(score_data))
+	response.scoresHeapLength=data.scoresHeapLength
+	return response

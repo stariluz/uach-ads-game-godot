@@ -3,12 +3,12 @@ extends Control
 const words:Array[String]=[
 #	"parangacutimicuaro",
 #	"contrarrevolucionario",
-	"mitocondria",
-	"aeropuerto",
+#	"mitocondria",
+#	"aeropuerto",
 	"alabasta",
 	"animal",
 	"pelota",
-	"conceptos",
+#	"conceptos",
 #	"esternocleidomastoideo",
 	"ñandu"
 ];
