@@ -4,7 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	onRefreshScores()
 #	var scoreList=scoreManager.getScorelist()
 #	print_debug(scoreList)
 #	renderScores(scoreList)

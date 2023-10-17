@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var FILE_NAME="scores_heap.json"
+signal score_update()
+
 var pointsPerGroup:Dictionary={
 	"group_1": 100,
 	"group_2": 200,
@@ -56,8 +58,6 @@ func setScoreWord(word:String):
 	currentScore.word=word
 	
 func getScorelist():
-	print_debug("DEV - ScoreManager - getScorelist: ", scoresHeap.getSortedScores())
-	print_debug("DEV - ScoreManager - getScorelist: ", scoresHeap.getSortedScores())
 	return scoresHeap.getSortedScores()
 	
 func on_word_initialized(word: String):
@@ -76,14 +76,15 @@ func on_win():
 	scoresHeap.registerScore(currentScore)
 #	print_debug("DEV - ScoreManager - on_win - Sorted scores:", scoresHeap.getSortedScores())
 	save_score(scoresHeap)
+	emit_signal('score_update')
 	
 func on_lose():
 	pass
 	
 func load_score():
 	if not FileAccess.file_exists(FILE_NAME):
-		print_debug("DEV - ScoreManager - loadScore:", "File hasn't been created")
-		return # Error! We don't have a save to load.
+#		print_debug("DEV - ScoreManager - loadScore:", "File hasn't been created")
+		return null # Error! We don't have a save to load.
 	var save_game = FileAccess.open(FILE_NAME, FileAccess.READ)
 	var json_string = save_game.get_line()
 	var json = JSON.new()
@@ -94,13 +95,10 @@ func load_score():
 
 	# Get the data from the JSON object
 	var score_data = json.get_data()
-	
-	print_debug("DEV - ScoreManager - loadScore - ScoresHeap", score_data)
-	return ScoresHeap.load(score_data)
 	save_game.close()
+	return ScoresHeap.load(score_data)
 	
 func save_score(scoresHeap:ScoresHeap):
-	print_debug("DEV - ScoreManager - save_score", scoresHeap.scoresHeap)
 	var save_game = FileAccess.open(FILE_NAME, FileAccess.WRITE)
 	var json_string =JSON.stringify(scoresHeap.save())
 	save_game.store_line(json_string)

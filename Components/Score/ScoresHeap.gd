@@ -32,8 +32,6 @@ func registerScore(score:Score):
 		return aux
 	else:
 		return IS_OUT_OF_ARRAY
-	
-	print_debug(scoresHeap)
 
 func getMaxScore():
 	if scoresHeapLength > 0:
@@ -44,7 +42,7 @@ func getMaxScore():
 func removeTopScore():
 	if scoresHeapLength == 0:
 		return null
-	print_debug("DEV - ScoresHeap - removeTopScore() - scoresHeap:", scoresHeap)
+#	print_debug("DEV - ScoresHeap - removeTopScore() - scoresHeap:", scoresHeap)
 	var scoreRemoved = scoresHeap[0]
 	scoresHeap[0] = scoresHeap.back()
 	scoresHeap.pop_back()
@@ -68,8 +66,8 @@ func removeTopScore():
 		if highestPriorityScore == index:
 			hasToContinue = false
 
-		print_debug("DEV - ScoresHeap - removeTopScore() - index:", index)
-		print_debug("DEV - ScoresHeap - removeTopScore() - scoresHeap[index]:", scoresHeap[index])
+#		print_debug("DEV - ScoresHeap - removeTopScore() - index:", index)
+#		print_debug("DEV - ScoresHeap - removeTopScore() - scoresHeap[index]:", scoresHeap[index])
 		var temp = scoresHeap[index]
 		scoresHeap[index] = scoresHeap[highestPriorityScore]
 		scoresHeap[highestPriorityScore] = temp
@@ -85,7 +83,6 @@ func getSortedScores():
 		removeTopScore()
 	scoresHeap=copyScores.duplicate(true)
 	scoresHeapLength=copyScores.size()
-	print_debug("DEV - ScoresHeap - sortedScores:", scoresHeap, copyScores)
 	return sortedScores
 
 func save():

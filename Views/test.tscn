@@ -27,20 +27,13 @@ anchors_preset = 0
 script = ExtResource("1_d2kqp")
 scoreManager = NodePath("../ScoreManager")
 
-[node name="ShowScore" type="Button" parent="ScoreTest"]
-layout_mode = 0
-offset_left = 1703.0
-offset_top = 18.0
-offset_right = 1900.0
-offset_bottom = 49.0
-text = "Actualizar score"
-
 [node name="Score" type="Label" parent="ScoreTest"]
 layout_mode = 0
-offset_left = 1414.0
-offset_top = 68.0
+offset_left = 1188.0
+offset_top = 22.0
 offset_right = 1902.0
-offset_bottom = 253.0
+offset_bottom = 207.0
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 2
 
 [connection signal="on_bad_attempt" from="WordManager" to="ScoreManager" method="on_bad_attempt"]
@@ -48,4 +41,4 @@ horizontal_alignment = 2
 [connection signal="on_win" from="WordManager" to="ScoreManager" method="on_win"]
 [connection signal="on_word_initialized" from="WordManager" to="ScoreManager" method="on_word_initialized"]
 [connection signal="key_clicked" from="Keyboard" to="WordManager" method="onAttempt"]
-[connection signal="pressed" from="ScoreTest/ShowScore" to="ScoreTest" method="onRefreshScores"]
+[connection signal="score_update" from="ScoreManager" to="ScoreTest" method="onRefreshScores"]

@@ -10,5 +10,4 @@ func _process(delta):
 
 
 func _on_a_key_clicked(key:String):
-	print_debug(key)
 	emit_signal("key_clicked",key)

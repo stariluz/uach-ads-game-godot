@@ -1,17 +1,47 @@
 extends Control
 
 const words:Array[String]=[
-#	"parangacutimicuaro",
-#	"contrarrevolucionario",
-#	"mitocondria",
-#	"aeropuerto",
+	"parangacutimicuaro",
+	"contrarrevolucionario",
+	"mitocondria",
+	"aeropuerto",
 	"alabasta",
 	"animal",
 	"pelota",
-#	"conceptos",
-#	"esternocleidomastoideo",
+	"conceptos",
+	"esternocleidomastoideo",
 	"ñandu"
 ];
+
+var usedLetters = {
+	"A": false,
+	"B": false,
+	"C": false,
+	"D": false,
+	"E": false,
+	"F": false,
+	"G": false,
+	"H": false,
+	"I": false,
+	"J": false,
+	"K": false,
+	"L": false,
+	"M": false,
+	"N": false,
+	"Ñ": false,
+	"O": false,
+	"P": false,
+	"Q": false,
+	"R": false,
+	"S": false,
+	"T": false,
+	"U": false,
+	"V": false,
+	"W": false,
+	"X": false,
+	"Y": false,
+	"Z": false,
+}
 
 signal on_good_attempt(letter:String)
 signal on_bad_attempt(letter:String)
@@ -38,6 +68,7 @@ func _process(delta):
 	pass
 
 func initWord():
+	initUsedLetters()
 	var randomIndex = randi() % words.size()
 	currentWord = words[randomIndex]
 	print("Randomly selected word: ", currentWord)
@@ -86,20 +117,21 @@ func renderLetterBoxUI(letter:String, horizontalPosition:int, horizontalSize: fl
 	lettersBoxUIIntances.push_back(lbUIInstance)
 	
 func rerenderLetterBoxUI(index:int, letter:String):
-#	print_debug(lettersBoxUIIntances[index])
 	lettersBoxUIIntances[index].get_node("Letter").text=letter
 
 func onAttempt(attempt_letter:String):
-	print_debug("TRY", attempt_letter)
+	if(usedLetters[attempt_letter]):
+		print_debug("Letter already tried")
+		return
+	
+	usedLetters[attempt_letter]=true
 	var isGoodAttempt=false
 	
 	for letter in tryWord:
 		if letter.to_upper()==attempt_letter.to_upper():
-			print_debug(letter, " ", attempt_letter)
 			return isGoodAttempt
 			
 	for i in range(currentWord.length()):
-		print_debug(currentWord[i], " ", attempt_letter)
 		if currentWord[i].to_upper()==attempt_letter.to_upper():
 			tryWord[i]=attempt_letter.to_upper();
 			rerenderLetterBoxUI(i, attempt_letter)
@@ -119,11 +151,42 @@ func hasWon():
 	for i in range(currentWord.length()):
 		if currentWord[i].to_upper() != tryWord[i].to_upper():
 			hasWin=false
-	print_debug("DEV - WordManager - HAS WIN?", hasWin)
 	return hasWin
-	
+
+func initUsedLetters():
+	usedLetters = {
+		"A": false,
+		"B": false,
+		"C": false,
+		"D": false,
+		"E": false,
+		"F": false,
+		"G": false,
+		"H": false,
+		"I": false,
+		"J": false,
+		"K": false,
+		"L": false,
+		"M": false,
+		"N": false,
+		"Ñ": false,
+		"O": false,
+		"P": false,
+		"Q": false,
+		"R": false,
+		"S": false,
+		"T": false,
+		"U": false,
+		"V": false,
+		"W": false,
+		"X": false,
+		"Y": false,
+		"Z": false,
+	}
+
 func onWin():
 	emit_signal("on_win");
+	initWord()
 	
 func onGoodAttempt(letter:String,):
 	emit_signal("on_good_attempt", letter);
@@ -131,3 +194,4 @@ func onGoodAttempt(letter:String,):
 func onBadAttempt(letter:String,):
 	emit_signal("on_bad_attempt", letter);
 	
+
