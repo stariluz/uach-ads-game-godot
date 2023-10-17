@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://lvs2kli3kwlc"]
 
 [ext_resource type="Script" path="res://Views/game_view.gd" id="1_8wcws"]
-[ext_resource type="PackedScene" uid="uid://b7nujlrp51o30" path="res://Components/keyboard.tscn" id="2_kdjmq"]
-[ext_resource type="PackedScene" uid="uid://drc6j16blej0u" path="res://Components/WordGeneration/WordManager.tscn" id="3_0sht3"]
+[ext_resource type="PackedScene" uid="uid://b7nujlrp51o30" path="res://Components/Inputs/keyboard.tscn" id="2_kdjmq"]
+[ext_resource type="PackedScene" uid="uid://drc6j16blej0u" path="res://Components/Word/WordManager.tscn" id="3_0sht3"]
 
 [node name="game_view" type="Node2D"]
 script = ExtResource("1_8wcws")

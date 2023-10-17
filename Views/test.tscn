@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://copmswempjdfj"]
+[gd_scene load_steps=9 format=3 uid="uid://copmswempjdfj"]
 
 [ext_resource type="Script" path="res://Views/test.gd" id="1_d2kqp"]
 [ext_resource type="PackedScene" uid="uid://drc6j16blej0u" path="res://Components/Word/WordManager.tscn" id="1_kjiem"]
 [ext_resource type="PackedScene" uid="uid://b7nujlrp51o30" path="res://Components/Inputs/keyboard.tscn" id="2_lbp47"]
 [ext_resource type="PackedScene" uid="uid://beca4tdu2ay6y" path="res://Components/Score/ScoreManager.tscn" id="3_v3ql8"]
+[ext_resource type="Script" path="res://Views/TimePanel.gd" id="5_rbmoj"]
+[ext_resource type="PackedScene" uid="uid://b8nxroifroe0q" path="res://Components/Entities/hanged_man.tscn" id="6_naola"]
+[ext_resource type="Script" path="res://Views/ContinueButton.gd" id="7_b6hu0"]
+[ext_resource type="Script" path="res://Views/ExitButton.gd" id="7_xofnl"]
 
 [node name="test" type="Node2D"]
+
+[node name="HangedMan" parent="." instance=ExtResource("6_naola")]
+position = Vector2(-390, -43)
+scale = Vector2(1.5, 1.5)
 
 [node name="WordManager" parent="." instance=ExtResource("1_kjiem")]
 offset_left = 964.0
@@ -20,6 +28,73 @@ offset_right = 678.0
 offset_bottom = 779.0
 
 [node name="ScoreManager" parent="." instance=ExtResource("3_v3ql8")]
+
+[node name="TimePanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_rbmoj")
+
+[node name="Minutes" type="Label" parent="TimePanel"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 3.0
+offset_right = 65.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 50
+text = "2:"
+horizontal_alignment = 2
+
+[node name="Seconds" type="Label" parent="TimePanel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 3.0
+offset_right = 124.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 50
+text = "00"
+horizontal_alignment = 2
+
+[node name="GameOverScreen" type="ColorRect" parent="."]
+visible = false
+offset_left = -110.0
+offset_top = -30.0
+offset_right = 1992.0
+offset_bottom = 1148.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 211.0
+offset_right = 1389.0
+offset_bottom = 542.0
+theme_override_font_sizes/font_size = 200
+text = "GAME OVER"
+
+[node name="ExitButton" type="Button" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 653.0
+offset_right = 692.0
+offset_bottom = 771.0
+theme_override_font_sizes/font_size = 50
+text = "SALIR
+"
+script = ExtResource("7_xofnl")
+
+[node name="ContinueButton" type="Button" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 658.0
+offset_right = 1075.0
+offset_bottom = 776.0
+theme_override_font_sizes/font_size = 50
+text = "REINTENTAR
+"
+script = ExtResource("7_b6hu0")
 
 [node name="ScoreTest" type="Control" parent="." node_paths=PackedStringArray("scoreManager")]
 layout_mode = 3
@@ -36,10 +111,29 @@ offset_bottom = 207.0
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 2
 
+[node name="Label" type="Label" parent="ScoreTest"]
+layout_mode = 0
+offset_left = 1560.0
+offset_top = 914.0
+offset_right = 1915.0
+offset_bottom = 1044.0
+text = "Adrian Alejandro González Domínguez 359834
+Héctor Daniel Medrano Meza 361345
+
+17/10/2023
+Avance proyecto \"El ahorcado\""
+
+[connection signal="disableLetter" from="WordManager" to="Keyboard" method="_on_word_manager_disable_letter"]
 [connection signal="on_bad_attempt" from="WordManager" to="ScoreManager" method="on_bad_attempt"]
 [connection signal="on_good_attempt" from="WordManager" to="ScoreManager" method="on_good_attempt"]
 [connection signal="on_win" from="WordManager" to="Keyboard" method="initKeyboard"]
 [connection signal="on_win" from="WordManager" to="ScoreManager" method="on_win"]
 [connection signal="on_word_initialized" from="WordManager" to="ScoreManager" method="on_word_initialized"]
 [connection signal="key_clicked" from="Keyboard" to="WordManager" method="onAttempt"]
+[connection signal="hangman_update" from="ScoreManager" to="HangedMan" method="_on_score_manager_hangman_update"]
+[connection signal="resetGame" from="ScoreManager" to="HangedMan" method="_on_score_manager_reset_game"]
+[connection signal="resetGame" from="ScoreManager" to="Keyboard" method="_on_score_manager_reset_game"]
+[connection signal="resetGame" from="ScoreManager" to="TimePanel" method="_on_score_manager_reset_game"]
 [connection signal="score_update" from="ScoreManager" to="ScoreTest" method="onRefreshScores"]
+[connection signal="timeIsUp" from="TimePanel" to="ScoreManager" method="_on_time_panel_time_is_up"]
+[connection signal="resetGame" from="GameOverScreen/ContinueButton" to="ScoreManager" method="_on_continue_button_reset_game"]

@@ -30,7 +30,10 @@ func _on_texture_button_pressed():
 		print_debug("Key ",letterText," already clicked")
 
 func set_key_as_clicked():
-	clicked=true
+	# Commented this line for now
+	# Clicked keys are now moved 10k pixels to the right instead
+	#clicked=true
+	pass
 	
 func set_key_as_unclicked():
 	clicked=false

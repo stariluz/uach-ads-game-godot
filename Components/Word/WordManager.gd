@@ -1,4 +1,5 @@
 extends Control
+signal disableLetter(letterToDisable: String)
 
 const words:Array[String]=[
 	"parangacutimicuaro",
@@ -9,8 +10,7 @@ const words:Array[String]=[
 	"animal",
 	"pelota",
 	"conceptos",
-	"esternocleidomastoideo",
-	"ñandu"
+	"esternocleidomastoideo"
 ];
 
 var usedLetters = {
@@ -132,6 +132,8 @@ func onAttempt(attempt_letter:String):
 	if(usedLetters[attempt_letter]):
 		print_debug("Letter already tried")
 		return
+	
+	disableLetter.emit(attempt_letter)
 	
 	usedLetters[attempt_letter]=true
 	var isGoodAttempt=false

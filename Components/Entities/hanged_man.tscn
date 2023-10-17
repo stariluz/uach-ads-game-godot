@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8nxroifroe0q"]
+
+[ext_resource type="Script" path="res://Components/Entities/hanged_man_behavior.gd" id="1_h468w"]
+[ext_resource type="Texture2D" uid="uid://ceqdy3ledc6gf" path="res://Resources/Sprites/Head.png" id="1_qjvjp"]
+[ext_resource type="Texture2D" uid="uid://bhyod21goy4qe" path="res://Resources/Sprites/ArmR.png" id="2_xm6dq"]
+[ext_resource type="Texture2D" uid="uid://cqhpx2uk0ccs0" path="res://Resources/Sprites/legR.png" id="3_n2sc3"]
+[ext_resource type="Texture2D" uid="uid://dnyca2y2jhbop" path="res://Resources/Sprites/Torso.png" id="4_xnlp4"]
+[ext_resource type="Texture2D" uid="uid://dlcipyh8kulft" path="res://Resources/Sprites/ArmL.png" id="5_x6pwq"]
+[ext_resource type="Texture2D" uid="uid://cvs2yohhs77uj" path="res://Resources/Sprites/legL.png" id="6_6gh4l"]
+
+[node name="HangedMan" type="Node2D"]
+script = ExtResource("1_h468w")
+
+[node name="ArmR" type="Sprite2D" parent="."]
+position = Vector2(349, 325)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_xm6dq")
+
+[node name="LegR" type="Sprite2D" parent="."]
+position = Vector2(353, 581)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_n2sc3")
+
+[node name="Torso" type="Sprite2D" parent="."]
+position = Vector2(367, 320)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_xnlp4")
+
+[node name="ArmL" type="Sprite2D" parent="."]
+position = Vector2(343, 327)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_x6pwq")
+
+[node name="LegL" type="Sprite2D" parent="."]
+position = Vector2(346, 581)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_6gh4l")
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(340, 150)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_qjvjp")
