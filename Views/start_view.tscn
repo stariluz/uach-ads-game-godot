@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://bdpq3g2bh1kwm"]
+[gd_scene load_steps=2 format=3 uid="uid://bdpq3g2bh1kwm"]
+
+[ext_resource type="Theme" uid="uid://bgv20uqau4260" path="res://Resources/Themes/main_theme.tres" id="1_wajfp"]
 
 [node name="start_view" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_wajfp")
+theme_override_font_sizes/font_size = 200
+text = "CUERVOS EN LA ORCA"

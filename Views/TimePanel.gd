@@ -1,15 +1,15 @@
 extends Panel
 signal timeIsUp()
 
-var time: float = 120.0
-var minutes:  int = 2
-var seconds: int = 0
+var time: float = 45.0
+var minutes:  int = 0
+var seconds: int = 45
 var isTimeUp: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func reset():
 	isTimeUp = false
-	time  = 120.0
+	time  = 45.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:

@@ -36,6 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_rbmoj")
+metadata/_edit_use_anchors_ = true
 
 [node name="Minutes" type="Label" parent="TimePanel"]
 layout_mode = 0
@@ -44,7 +45,7 @@ offset_top = 3.0
 offset_right = 65.0
 offset_bottom = 75.0
 theme_override_font_sizes/font_size = 50
-text = "2:"
+text = "0:"
 horizontal_alignment = 2
 
 [node name="Seconds" type="Label" parent="TimePanel"]
@@ -54,7 +55,7 @@ offset_top = 3.0
 offset_right = 124.0
 offset_bottom = 75.0
 theme_override_font_sizes/font_size = 50
-text = "00"
+text = "45"
 horizontal_alignment = 2
 
 [node name="GameOverScreen" type="ColorRect" parent="."]
@@ -101,12 +102,13 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_d2kqp")
 scoreManager = NodePath("../ScoreManager")
+metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="Label" parent="ScoreTest"]
 layout_mode = 0
-offset_left = 1188.0
+offset_left = 1196.0
 offset_top = 22.0
-offset_right = 1902.0
+offset_right = 1910.0
 offset_bottom = 207.0
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 2
